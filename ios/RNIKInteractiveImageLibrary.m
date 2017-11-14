@@ -1,7 +1,6 @@
 
 #import "RNIKInteractiveImageLibrary.h"
 #import <React/RCTBridge.h>
-#import <React/RCTEventDispatcher.h>
 
 @implementation RNIKInteractiveImageLibrary
 
