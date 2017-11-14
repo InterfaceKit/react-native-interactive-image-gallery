@@ -11,7 +11,7 @@
   "author": "Alvaro Medina Ballester",
   "license": "MIT",
   "peerDependencies": {
-    "react-native": "^0.41.2"
+    "react-native": ">=0.41.2"
   },
   "devDependencies": {
     "@types/babel-core": "^6.25.3",
