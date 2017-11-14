@@ -1,6 +1,5 @@
+/* @flow */
 
-import { NativeModules } from 'react-native';
+import ImageBrowser from './lib/ImageBrowser'
 
-const { RNIKInteractiveImageLibrary } = NativeModules;
-
-export default RNIKInteractiveImageLibrary;
+export default ImageBrowser

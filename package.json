@@ -1,16 +1,37 @@
 {
   "name": "react-native-interactive-image-library",
   "version": "1.0.0",
-  "description":
-    "A React Native image gallery browser with interactive animations",
+  "description": "A React Native image gallery browser with interactive animations",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["react-native"],
+  "keywords": [
+    "react-native"
+  ],
   "author": "Alvaro Medina Ballester",
   "license": "MIT",
   "peerDependencies": {
     "react-native": "^0.41.2"
+  },
+  "devDependencies": {
+    "@types/babel-core": "^6.25.3",
+    "@types/jest": "^21.1.6",
+    "@types/react-test-renderer": "^16.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.2",
+    "babel-jest": "^21.2.0",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react-native": "^4.0.0",
+    "eslint": "^4.11.0",
+    "eslint-plugin-flowtype": "^2.39.1",
+    "eslint-plugin-react": "^7.4.0",
+    "eslint-plugin-react-native": "^3.1.0",
+    "flow-bin": "^0.59.0",
+    "jest": "^21.2.1",
+    "prettier-eslint": "^8.2.1",
+    "react-test-renderer": "^16.1.1"
   }
 }

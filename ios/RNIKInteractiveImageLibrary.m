@@ -12,6 +12,11 @@
 
 RCT_EXPORT_MODULE();
 
+- (NSArray<NSString *> *)supportedEvents
+{
+    return @[@"MotionManager"];
+}
+
 - (id)init {
     if (self = [super init]) {
         self.motionManager = [[CMMotionManager alloc] init];
@@ -50,8 +55,8 @@ RCT_EXPORT_METHOD(startYawUpdates) {
     x = x + k*(yaw - x);
     p = (1 - k)*p;
     self.motionLastYaw = x;
-    [self.bridge.eventDispatcher sendDeviceEventWithName:@"MotionManager"
-                                                    body:@{@"yaw": [NSNumber numberWithDouble:self.motionLastYaw]}];
+    [self sendEventWithName:@"MotionManager"
+                       body:@{@"yaw": [NSNumber numberWithDouble:self.motionLastYaw]}];
 }
 
 RCT_EXPORT_METHOD(stopYawUpdates) {
