@@ -29,16 +29,22 @@ RCT_EXPORT_MODULE();
 }
 
 RCT_EXPORT_METHOD(startYawUpdates) {
-    self.motionDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(motionRefresh:)];
-    [self.motionDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     if ([self.motionManager isDeviceMotionActive]) {
         // To avoid using more CPU than necessary we use
         // `CMAttitudeReferenceFrameXArbitraryZVertical`
-        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical];
+        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical
+                                                                toQueue:[NSOperationQueue mainQueue]
+                                                            withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
+                                                                [self motionRefresh];
+        }];
+    } else {
+        [self.motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
+            [self motionRefresh];
+        }];
     }
 }
 
-- (void)motionRefresh:(id)sender {
+- (void)motionRefresh {
     CMQuaternion quat = self.motionManager.deviceMotion.attitude.quaternion;
     double yaw = asin(2*(quat.x*quat.z - quat.w*quat.y));
 
@@ -63,7 +69,7 @@ RCT_EXPORT_METHOD(startYawUpdates) {
 }
 
 RCT_EXPORT_METHOD(stopYawUpdates) {
-    [self.motionDisplayLink invalidate];
+    [self.motionManager stopDeviceMotionUpdates];
 }
 
 @end
