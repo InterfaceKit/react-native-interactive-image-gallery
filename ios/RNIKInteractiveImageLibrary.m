@@ -29,18 +29,14 @@ RCT_EXPORT_MODULE();
 }
 
 RCT_EXPORT_METHOD(startYawUpdates) {
-    if ([self.motionManager isDeviceMotionActive]) {
+    if ([self.motionManager isDeviceMotionAvailable]) {
         // To avoid using more CPU than necessary we use
         // `CMAttitudeReferenceFrameXArbitraryZVertical`
         [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical
                                                                 toQueue:[NSOperationQueue mainQueue]
                                                             withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
                                                                 [self motionRefresh];
-        }];
-    } else {
-        [self.motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
-            [self motionRefresh];
-        }];
+                                                            }];
     }
 }
 
@@ -63,9 +59,13 @@ RCT_EXPORT_METHOD(startYawUpdates) {
     k = p / (p + r);
     x = x + k*(yaw - x);
     p = (1 - k)*p;
-    self.motionLastYaw = x;
-    [self sendEventWithName:@"MotionManager"
-                       body:@{@"yaw": [NSNumber numberWithDouble:self.motionLastYaw]}];
+
+    float difference = x - self.motionLastYaw;
+    if (!(difference > -0.005 && difference < 0.005)) {
+        self.motionLastYaw = x;
+        [self sendEventWithName:@"MotionManager"
+                           body:@{@"yaw": [NSNumber numberWithDouble:self.motionLastYaw]}];
+    }
 }
 
 RCT_EXPORT_METHOD(stopYawUpdates) {
@@ -73,3 +73,4 @@ RCT_EXPORT_METHOD(stopYawUpdates) {
 }
 
 @end
+

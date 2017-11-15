@@ -9,4 +9,3 @@
 @property (nonatomic) double motionLastYaw;
 
 @end
-  
