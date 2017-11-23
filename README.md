@@ -1,8 +1,8 @@
-# react-native-interactive-image-library
+# react-native-interactive-image-gallery
 
 <p>
-<img src="https://img.shields.io/npm/dm/react-native-interactive-image-library.svg" />
-<img src="https://img.shields.io/npm/dt/react-native-interactive-image-library.svg" />
+<img src="https://img.shields.io/npm/dm/react-native-interactive-image-gallery.svg" />
+<img src="https://img.shields.io/npm/dt/react-native-interactive-image-gallery.svg" />
 </p>
 
 A React Native component to display a gallery of images.
@@ -14,11 +14,11 @@ A React Native component to display a gallery of images.
 
 ## Getting started
 
-`$ yarn add react-native-interactive-image-library`
+`$ yarn addreact-native-interactive-image-gallery`
 
 ### Mostly automatic installation
 
-`$ react-native link react-native-interactive-image-library`
+`$ react-native link react-native-interactive-image-gallery`
 
 ### Manual installation
 
@@ -26,7 +26,7 @@ A React Native component to display a gallery of images.
 
 1. In Xcode, in the project navigator, right click `Libraries` ➜ `Add Files to
    [your project's name]`
-2. Go to `node_modules` ➜ `react-native-interactive-image-library` and add
+2. Go to `node_modules` ➜ `react-native-interactive-image-gallery` and add
    `RNIKInteractiveImageLibrary.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add
    `libRNIKInteractiveImageLibrary.a` to your project's `Build Phases` ➜ `Link
@@ -60,6 +60,17 @@ class Images extends React.PureComponent<Props> {
 ## API
 
 Work in progress.
+
+## Aknowledgements
+
+Thanks to Eric Vicenti (https://github.com/ericvicenti) and
+[his talk at React Native EU 2017](https://www.youtube.com/watch?v=7emqc7yf-Zg)
+called "Practical Hacks for delightful interactions" for the inspiration and the
+iOS animations present in this library
+
+The main idea of the library and some parts of the code were inspired or taken
+from his presentation, available at
+[this repo](https://github.com/ericvicenti/react-native-eu-2017).
 
 ## License
 
