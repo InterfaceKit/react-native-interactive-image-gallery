@@ -59,7 +59,8 @@ class Images extends React.PureComponent<Props> {
 
 ## API
 
-Work in progress.
+Work in progress 🚧👷🏻. Some features are experimental and the API will change in
+the future.
 
 ## Aknowledgements
 
