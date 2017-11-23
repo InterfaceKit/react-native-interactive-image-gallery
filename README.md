@@ -10,6 +10,8 @@ A React Native component to display a gallery of images.
 <p align="center">
 <img src="https://raw.githubusercontent.com/wiki/InterfaceKit/react-native-interactive-image-library/ios.gif" alt="iOS" width="400" />
 <img src="https://raw.githubusercontent.com/wiki/InterfaceKit/react-native-interactive-image-library/android.gif" alt="Android" width="400" />
+<img src="https://raw.githubusercontent.com/wiki/APSL/react-native-keyboard-aware-scroll-view/kasv.gif" alt="Scroll demo" width="400">
+
 </p>
 
 ## Getting started
