@@ -24,14 +24,12 @@ A React Native component to display a gallery of images.
 
 #### iOS
 
-1. In Xcode, in the project navigator, right click `Libraries` ➜ `Add Files to
-   [your project's name]`
-2. Go to `node_modules` ➜ `react-native-interactive-image-gallery` and add
-   `RNIKInteractiveImageLibrary.xcodeproj`
-3. In XCode, in the project navigator, select your project. Add
-   `libRNIKInteractiveImageLibrary.a` to your project's `Build Phases` ➜ `Link
-   Binary With Libraries`
-4. Run your project (`Cmd+R`)<
+1.  In Xcode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
+2.  Go to `node_modules` ➜ `react-native-interactive-image-gallery` and add
+    `RNIKInteractiveImageLibrary.xcodeproj`
+3.  In XCode, in the project navigator, select your project. Add
+    `libRNIKInteractiveImageLibrary.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
+4.  Run your project (`Cmd+R`)<
 
 #### Android
 
@@ -40,27 +38,51 @@ No additional setup needed.
 ## Usage
 
 ```javascript
-import ImageBrowser from 'react-native-interactive-image-gallery';
+import ImageBrowser from 'react-native-interactive-image-gallery'
 
 class Images extends React.PureComponent<Props> {
   render() {
     const imageURLs: Array<Object> = this.props.images.map(
       (img: Object, index: number) => ({
         URI: img.uri,
+        thumbnail: img.thumbnail,
         id: String(index),
         title: img.title,
         description: img.description
       })
-    );
-    return <ImageBrowser images={imageURLs} />;
+    )
+    return <ImageBrowser images={imageURLs} />
   }
 }
 ```
 
 ## API
 
-Work in progress 🚧👷🏻. Some features are experimental and the API will change in
-the future.
+The `<ImageBrowser />` component accepts the following props
+
+### Props
+
+| Prop                                  | Type                  | Mandatory |
+| ------------------------------------- | --------------------- | --------- |
+| `images`                              | `Array<ImageSource>`  | **Yes**   |
+| `onPressImage`                        | `Function`            |
+| `topMargin`                           | `number`              |
+| `closeText`                           | `string`              |
+| `infoTitleStyles`                     | `Animated.View.style` |
+| `infoDescriptionStyles`               | `Animated.View.style` |
+| `enableTilt` (experimental, iOS only) | `boolean`             |
+
+Where `ImageSource` represents
+
+### `ImageSource`
+
+| Name          | Type     | Mandatory |
+| ------------- | -------- | --------- |
+| `id`          | `string` | **Yes**   |
+| `URI`         | `string` | **Yes**   |
+| `thumbnail`   | `string` | **Yes**   |
+| `title`       | `string` |
+| `description` | `string` |
 
 ## Aknowledgements
 
