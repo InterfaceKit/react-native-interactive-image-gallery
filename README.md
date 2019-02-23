@@ -14,7 +14,7 @@ A React Native component to display a gallery of images.
 
 ## Getting started
 
-`$ yarn addreact-native-interactive-image-gallery`
+`$ yarn add react-native-interactive-image-gallery`
 
 ### Mostly automatic installation
 
